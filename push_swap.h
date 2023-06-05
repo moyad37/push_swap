@@ -8,15 +8,16 @@
 # include <unistd.h>
 
 
-
-// typedef struct s_list
-// {
-// 	struct s_list	*ptr;
-// 	int				index;
-// 	int				flag;
-// 	int				nb;
-// 	void			*content;
-// }					t_list;
+/*
+typedef struct s_list
+{
+struct s_list	*next;
+int				index;
+int				flag;
+int				nb;
+void			*content;
+}					t_list;
+*/
 
 
 typedef struct s_list
@@ -27,11 +28,21 @@ typedef struct s_list
 }					t_list;
 
 
+/////////////////////////////////////////
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstnew(int content);
+int	ft_lstsize(t_list *lst);
+//////////////////////////////////////////////
+
+
+//static void    init_stack(t_list **stack_a, int ac, char **av);
 int ft_check_doupple(char **str, int n);
 void check_args(int ac, char **av);
 void return_error(char *str);
 int ft_is_number(char *n);
 long	ft_atol(const char *str);
 
-static void    init(t_list **stack_a, int ac, char **av);
+
 #endif

@@ -55,10 +55,6 @@ SRC =  ft_isalpha.c\
 	ft_lstsize.c \
 	ft_lstlast.c \
 	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c\
 	ft_print_char.c\
 	ft_print_hex.c\
 	ft_print_nbr.c\

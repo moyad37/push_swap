@@ -10,20 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-/*
-Adds the node ’new’ at the end of the list.
-lst: The address of a pointer to the first link of a list.
-new: The address of a pointer to the node to be added to the list.
-*/
+#include "../../push_swap.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
-	tmp = ft_lstlast(*lst);
-	if (tmp)
-		tmp -> next = new;
+	if(*lst)
+	{
+		tmp = ft_lstlast(*lst);
+		tmp->next = new;
+		new->next = NULL;
+	}
 	else
+	{
 		*lst = new;
+		(*lst)->next = NULL;
+	}
 }

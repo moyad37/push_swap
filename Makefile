@@ -1,4 +1,4 @@
-SRCS            = push_swap.c error.c check.c utils.c
+SRCS            = push_swap.c error.c check.c utils.c init.c
 
 OBJS            = $(SRCS:.c=.o)
 

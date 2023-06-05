@@ -10,21 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-/*
-Returns the last node of the list.
-*/
+#include "../../push_swap.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*last;
+	t_list *tmp;
 
-	last = lst;
-	while (last)
+	tmp = lst;
+	while(tmp->next)
 	{
-		if (last -> next == NULL)
-			return (last);
-		last = last -> next;
+		tmp = tmp->next;
+		if(tmp->next == NULL)
+			return (tmp);
 	}
-	return (0);
+	return (tmp);
 }

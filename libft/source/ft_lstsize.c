@@ -10,20 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-/*
-Counts the number of nodes in a list.
-Return the length of the list.
-*/
+#include "../../push_swap.h"
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	size_t i;
+	t_list *tmp;
 
 	i = 0;
-	while (lst)
+	tmp = lst;
+	while (tmp)
 	{
-		lst = lst -> next;
+		tmp = tmp->next;
 		i++;
 	}
 	return (i);
