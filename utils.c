@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
+/*   Updated: 2023/06/06 14:18:15 by mmanssou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_is_number(char *n)
@@ -36,3 +48,49 @@ long	ft_atol(const char *str)
 	}
 	return (result * sign);
 }
+
+void	free_stack(t_list **stack)
+{
+	t_list *tmp;
+	t_list *head;
+
+	head = *stack;
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+	free(stack);
+}
+
+// void	ft_lstadd_back(t_list **lst, t_list *new)
+// {
+// 	t_list	*tmp;
+
+// 	if(*lst)
+// 	{
+// 		tmp = ft_lstlast(*lst);
+// 		tmp->next = new;
+// 		new->next = NULL;
+// 	}
+// 	else
+// 	{
+// 		*lst = new;
+// 		(*lst)->next = NULL;
+// 	}
+// }
+
+// t_list	*ft_lstlast(t_list *lst)
+// {
+// 	t_list *tmp;
+
+// 	tmp = lst;
+// 	while(tmp->next)
+// 	{
+// 		tmp = tmp->next;
+// 		if(tmp->next == NULL)
+// 			return (tmp);
+// 	}
+// 	return (tmp);
+// }

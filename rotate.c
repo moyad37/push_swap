@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/06 14:03:21 by mmanssou         ###   ########.fr       */
+/*   Created: 2023/06/06 14:36:36 by mmanssou          #+#    #+#             */
+/*   Updated: 2023/06/06 14:42:29 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+static void rotate(t_list **stack)
 {
-	t_list *tmp;
+    t_list *tmp;
+    if(!(*stack) || !(*stack)->next)
+        return ;
+    tmp = *stack;
+    *stack = *stack->next;
+    ft_lstadd_back(stack, tmp);
+}
 
-	tmp = lst;
-	while(tmp->next)
-	{
-		tmp = tmp->next;
-		if(tmp->next == NULL)
-			return (tmp);
-	}
-	return (tmp);
+void print_list(t_list *list)
+{
+    while (list)
+    {
+        printf("%d ", list->data);
+        list = list->next;
+    }
+    printf("\n");
 }

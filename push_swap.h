@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
+/*   Updated: 2023/06/06 14:43:41 by mmanssou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -43,6 +55,24 @@ void check_args(int ac, char **av);
 void return_error(char *str);
 int ft_is_number(char *n);
 long	ft_atol(const char *str);
+int check_sorted(t_list **stack);
+void	free_stack(t_list **stack);
+void    start_sort(t_list **stack_a, t_list **stack_b);
 
 
+
+
+/////Rotate
+static void rotate(t_list **stack);
+
+
+/////swap
+static void swap(t_list **stack);
+void    sa(t_list **stack_a);
+void    sb(t_list **stack_b);
+void    ss(t_list **stack_a, t_list **stack_b);
+
+/////////////////////////////
+void print_list(t_list *list);
+///////////////////////////7
 #endif

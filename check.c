@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
+/*   Updated: 2023/06/06 14:11:29 by mmanssou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int ft_check_doupple(char **str, int n)
@@ -25,7 +37,7 @@ int ft_check_doupple(char **str, int n)
 
 void check_args(int ac, char **av)
 {
-    //printf("check_args\n");
+    printf("check_args\n");
     int i;
     char **test;
 
@@ -61,4 +73,18 @@ void check_args(int ac, char **av)
     }
     if(ac == 2)
         free(test);
+}
+
+int check_sorted(t_list **stack)
+{
+    t_list  *tmp;
+
+    tmp = *stack;
+    while(tmp && tmp->next)
+    {
+        if(tmp->value > tmp->next->value)
+            return(0);
+        tmp = tmp->next;
+    }
+    return (1);
 }
