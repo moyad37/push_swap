@@ -33,5 +33,5 @@ void	pb(t_list **stack_a, t_list **stack_b)
 	tmp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	ft_lstadd_front(stack_b, tmp);
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }

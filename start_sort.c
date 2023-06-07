@@ -37,6 +37,6 @@ void    start_sort(t_list **stack_a, t_list **stack_b)
     size = ft_lstsize(*stack_a);
     if(size > 1 && size < 6)
         easy_sort(stack_a, stack_b, size);
-    else if (size > 5)
-        hard_sort(stack_a, stack_b);
+    //else if (size > 5)
+    //    hard_sort(stack_a, stack_b);
 }

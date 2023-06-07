@@ -18,9 +18,9 @@ static void swap(t_list **stack)
     if(!(*stack) || !(*stack)->next)
         return ;
     tmp = *stack;
-    *stack = *stack->next;
-    tmp->next = *stack->next;
-    *stackc->next = tmp;
+    *stack = (*stack)->next;
+    tmp->next = (*stack)->next;
+    (*stack)->next = tmp;
 }
 
 void    sa(t_list **stack_a)

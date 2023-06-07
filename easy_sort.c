@@ -20,15 +20,15 @@ void	sort_2(t_list **stack)
 
 static int	operation(int a, int b, int c)
 {
-	if ((a > b) && (b < c) && (c > a))
+	if ((a > b) && (b > c) && (c < a))
 		return (1);
-	else if ((a > b) && (b > c) && (c < a))
+	else if ((a < b) && (b > c) && (c > a))
 		return (2);
 	else if ((a > b) && (b < c) && (c < a))
 		return (3);
-	else if ((a < b) && (b > c) && (c > a))
-		return (4);
 	else if ((a < b) && (b > c) && (c < a))
+		return (4);
+	else if ((a > b) && (b < c) && (c > a))
 		return (5);
 	return (0);
 }
@@ -41,21 +41,23 @@ void	sort_3(t_list **stack)
 
 	a = (*stack)->value;
 	b = (*stack)->next->value;
-	b = (*stack)->next->next->value;
+	c = (*stack)->next->next->value;
 
 	if (operation(a, b, c) == 1)
-		sa(stack);
-	else if (operation(a, b, c) == 2)
 	{
 		sa(stack);
 		rra(stack);
 	}
+	else if (operation(a, b, c) == 2)
+	{
+		sa(stack);
+		ra(stack);
+	}
+	else if (operation(a, b, c) == 5)
+		sa(stack);
 	else if (operation(a, b, c) == 3)
 		ra(stack);
 	else if (operation(a, b, c) == 4)
-		sa(stack);
-	ra(stack);
-	else if (operation(a, b, c) == 5)
 		rra(stack);
 }
 

@@ -15,7 +15,6 @@
 
 static void	init_stack(t_list **stack_a, int ac, char **av)
 {
-    printf("init\n");
 	char	**str;
     //t_list *new;
     int hm;
@@ -56,7 +55,6 @@ static void	init_stack(t_list **stack_a, int ac, char **av)
 
 int	main(int ac, char **av)
 {
-    printf("main\n");
 	//char **arg_temp;
 	t_list **stack_a;
 	t_list **stack_b;

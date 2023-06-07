@@ -58,31 +58,37 @@ long	ft_atol(const char *str);
 int check_sorted(t_list **stack);
 void	free_stack(t_list **stack);
 void    start_sort(t_list **stack_a, t_list **stack_b);
+void	sort_2(t_list **stack);
+//static int	operation(int a, int b, int c);
+void	sort_3(t_list **stack);
+void    sort_4(t_list **stack_a, t_list **stack_b);
+void    sort_5(t_list **stack_a, t_list **stack_b);
+int find_min_value(t_list *stack);
+int find_index_of_min(t_list *stack, int min);
+void get_min_to_top(t_list **stack_a, int top_index);
 
 
+///Rotate
+ //static void rotate(t_list **stack);
+ void    ra(t_list **stack_a);
+ void    rb(t_list **stack_b);
+ void    rr(t_list **stack_a, t_list **stack_b);
+
+ ////revers_rotate
+ //static void revers_rotate(t_list **stack);
+ void    rra(t_list **stack_a);
+ void    rrb(t_list **stack_b);
+ void    rrr(t_list **stack_a, t_list **stack_b);
+
+ /////swap
+ //static void swap(t_list **stack);
+ void    sa(t_list **stack_a);
+ void    sb(t_list **stack_b);
+ void    ss(t_list **stack_a, t_list **stack_b);
 
 
-/////Rotate
-// static void rotate(t_list **stack);
-// void    ra(t_list **stack_a);
-// void    rb(t_list **stack_b);
-// void    rr(t_list **stack_a, t_list **stack_b);
-
-// ////revers_rotate
-// static void revers_rotate(t_list **stack);
-// void    rra(t_list **stack_a);
-// void    rrb(t_list **stack_b);
-// void    rrr(t_list **stack_a, t_list **stack_b);
-
-// /////swap
-// static void swap(t_list **stack);
-// void    sa(t_list **stack_a);
-// void    sb(t_list **stack_b);
-// void    ss(t_list **stack_a, t_list **stack_b);
-
-
-// ////push
-// void    pa(t_list **stack_a, t_list **stack_b)
-// void    pb(t_list **stack_a, t_list **stack_b)
+ ////push
+ void    pa(t_list **stack_a, t_list **stack_b);
+ void    pb(t_list **stack_a, t_list **stack_b);
 
 #endif

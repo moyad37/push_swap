@@ -14,12 +14,16 @@
 
 int ft_check_doupple(char **str, int n)
 {
-    //printf("-----Check_doupple\n");
     int i;
     int key;
+    int test;
     
     key = 0;
     i = 0;
+    if(n == 0)
+        test = 2;
+    else
+        test = 1;
     while(str[i])
     {
         int num;
@@ -27,7 +31,7 @@ int ft_check_doupple(char **str, int n)
         if(num == n)
         {
             key++;
-            if(key > 1)
+            if(key > test)
                 return (1);
         }
         i++;
@@ -37,7 +41,6 @@ int ft_check_doupple(char **str, int n)
 
 void check_args(int ac, char **av)
 {
-    printf("check_args\n");
     int i;
     char **test;
 
@@ -67,7 +70,8 @@ void check_args(int ac, char **av)
         if(ft_atol(test[i]) >= 2147483647 || ft_atol(test[i]) < -2147483648)
             return_error("check your args, INT_MAX or -INT_MAX\n");
         if (ft_check_doupple(test, ft_atoi(test[i])) != 0)
-            return_error("check your args, it contains doupple numbers\n");
+            return_error("check your args, it contains doupple numbers");
+
         //write(1, "Hallo\n", 6);
         i++;
     }

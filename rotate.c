@@ -18,7 +18,7 @@ static void rotate(t_list **stack)
     if(!(*stack) || !(*stack)->next)
         return ;
     tmp = *stack;
-    *stack = *stack->next;
+    *stack = (*stack)->next;
     ft_lstadd_back(stack, tmp);
 }
 
