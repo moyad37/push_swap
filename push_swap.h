@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/06 14:43:41 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:34:23 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,26 @@ void    start_sort(t_list **stack_a, t_list **stack_b);
 
 
 /////Rotate
-static void rotate(t_list **stack);
+// static void rotate(t_list **stack);
+// void    ra(t_list **stack_a);
+// void    rb(t_list **stack_b);
+// void    rr(t_list **stack_a, t_list **stack_b);
+
+// ////revers_rotate
+// static void revers_rotate(t_list **stack);
+// void    rra(t_list **stack_a);
+// void    rrb(t_list **stack_b);
+// void    rrr(t_list **stack_a, t_list **stack_b);
+
+// /////swap
+// static void swap(t_list **stack);
+// void    sa(t_list **stack_a);
+// void    sb(t_list **stack_b);
+// void    ss(t_list **stack_a, t_list **stack_b);
 
 
-/////swap
-static void swap(t_list **stack);
-void    sa(t_list **stack_a);
-void    sb(t_list **stack_b);
-void    ss(t_list **stack_a, t_list **stack_b);
+// ////push
+// void    pa(t_list **stack_a, t_list **stack_b)
+// void    pb(t_list **stack_a, t_list **stack_b)
 
-/////////////////////////////
-void print_list(t_list *list);
-///////////////////////////7
 #endif

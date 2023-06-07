@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/07 14:36:45 by mmanssou         ###   ########.fr       */
+/*   Created: 2023/06/07 13:05:44 by mmanssou          #+#    #+#             */
+/*   Updated: 2023/06/07 13:33:02 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
-	if (!s)
+	t_list	*tmp;
+
+	if (!(*stack_b))
 		return ;
-	while (*s)
-		write(fd, s++, 1);
-	write(fd, "\n", 1);
+	tmp = *stack_b;
+	*stack_b = (*stack_b)->next;
+	ft_lstadd_front(stack_a, tmp);
+	write(1, "pa\n", 3);
 }
 
-void return_error(char *str)
-{
-    ft_putendl_fd(str, 1);
-    exit(0);
-}
-
-void	free_stack(t_list **stack)
+void	pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list *tmp;
-	t_list *head;
 
-	head = *stack;
-	while (head)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
-	free(stack);
+	if (!(*stack_a))
+		return ;
+	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	ft_lstadd_front(stack_b, tmp);
+	write(1, "pa\n", 3);
 }

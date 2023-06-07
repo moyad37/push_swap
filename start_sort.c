@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   start_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/06 14:44:12 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:37:55 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void    easy_sort(t_list **stack_a, t_list **stack_b, int size)
 {
-    // if(size == 2)
-    //     sort_2(stack_a, stack_b);
-    // else if(size == 3)
-    //     sort_3(stack_a, stack_b);
-    // else if(size == 4)
-    //     sort_4(stack_a, stack_b);
-    // else if(size == 5)
-    //     sort_5(stack_a, stack_b);
+    if(size == 2)
+        sort_2(stack_a);
+    else if(size == 3)
+        sort_3(stack_a);
+    else if(size == 4)
+        sort_4(stack_a, stack_b);
+    else if(size == 5)
+        sort_5(stack_a, stack_b);
 }
 
 void    start_sort(t_list **stack_a, t_list **stack_b)

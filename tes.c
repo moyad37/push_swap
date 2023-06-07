@@ -249,6 +249,12 @@ void	free_stack(t_list **stack)
 	free(stack);
 }
 
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	*lst = new;
+}
+
 static void swap(t_list **stack)
 {
     t_list *tmp;
@@ -278,8 +284,80 @@ void    ss(t_list **stack_a, t_list **stack_b)
     swap(stack_b);
     write(1, "ss\n", 3);
 }
+static void revers_rotate(t_list **stack)
+{
+    t_list *tmp;
+    t_list *bottom;
+    if(!(*stack) || !(*stack)->next)
+        return ;
+    tmp = *stack;
+    bottom = ft_lstlast(*stack);
+    while((*stack)->next->next)
+        *stack = (*stack)->next;
+    bottom->next = tmp;
+    (*stack)->next = NULL;
+    *stack = bottom;
+    //ft_lstadd_front(stack, tmp);
+
+}
+
+void    rra(t_list **stack_a)
+{
+    revers_rotate(stack_a);
+    write(1, "rra\n", 3);
+}
+
+void    rrb(t_list **stack_b)
+{
+    revers_rotate(stack_b);
+    write(1, "rrb\n", 3);
+}
 
 
+void    rrr(t_list **stack_a, t_list **stack_b)
+{
+    revers_rotate(stack_a);
+    revers_rotate(stack_b);
+    write(1, "rrr\n", 3);
+}
+
+// void    pa(t_list **stack_a, t_list **stack_b)
+// {
+//     t_list *tmp;
+
+//     if(!(*stack_b))
+//         return ;
+//     tmp = (*stack_b)->next;
+//     (*stack_b)->next = *stack_a;
+//     *stack_a = *stack_b;
+// 	*stack_b = tmp;
+//     write(1, "pa\n", 3);
+// }
+
+void pa(t_list **stack_a, t_list **stack_b)
+{
+    if (!(*stack_b))
+        return;
+
+    t_list *tmp = *stack_b;
+    *stack_b = (*stack_b)->next;
+    ft_lstadd_front(stack_a, tmp);
+    
+    write(1, "pa\n", 3);
+}
+
+void    pb(t_list **stack_a, t_list **stack_b)
+{
+    t_list *tmp;
+
+    if(!(*stack_a))
+        return ;
+    tmp = (*stack_a)->next;
+    (*stack_a)->next = *stack_b;
+    *stack_b = *stack_a;
+	*stack_a = tmp;
+    write(1, "pb\n", 3);
+}
 static void rotate(t_list **stack)
 {
     t_list *tmp;
@@ -516,19 +594,60 @@ int	main(int ac, char **av)
     sa(stack_a);
     printf("stack a :\n");
     print_list(*stack_a);
+    */
 
 
     sa(stack_a);
     printf("stack a :\n");
     print_list(*stack_a);
 
-    ra(stack_a);
-    printf("stack a :\n");
-    print_list(*stack_a);
+    // ra(stack_a);
+    // printf("stack a :\n");
+    // print_list(*stack_a);
 
     ra(stack_a);
     printf("stack a :\n");
     print_list(*stack_a);
-    */
+
+	rra(stack_a);
+    printf("stack a :\n");
+    print_list(*stack_a);
+
+	rra(stack_a);
+    printf("stack a :\n");
+    print_list(*stack_a);
+
+
+	pa(stack_a, stack_b);
+    printf("stack a :\n");
+    print_list(*stack_a);
+	printf("\n\n");
+	printf("stack b :\n");
+    print_list(*stack_b);
+
+
+
+	pb(stack_a, stack_b);
+    printf("stack a :\n");
+    print_list(*stack_a);
+	printf("\n\n");
+	printf("stack b :\n");
+    print_list(*stack_b);
+
+
+	pb(stack_a, stack_b);
+    printf("stack a :\n");
+    print_list(*stack_a);
+	printf("\n\n");
+	printf("stack b :\n");
+    print_list(*stack_b);
+
+
+	pa(stack_a, stack_b);
+    printf("stack a :\n");
+    print_list(*stack_a);
+	printf("\n\n");
+	printf("stack b :\n");
+    print_list(*stack_b);
 	return (0);
 }

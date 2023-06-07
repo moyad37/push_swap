@@ -11,15 +11,20 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-///MUSS NOCH MACHEN ALLES
+
 static void revers_rotate(t_list **stack)
 {
     t_list *tmp;
+    t_list *bottom;
     if(!(*stack) || !(*stack)->next)
         return ;
     tmp = *stack;
-    *stack = *stack->next;
-    ft_lstadd_back(stack, tmp);
+    bottom = ft_lstlast(*stack);
+    while((*stack)->next->next)
+        *stack = (*stack)->next;
+    bottom->next = tmp;
+    (*stack)->next = NULL;
+    *stack = bottom;
 }
 
 void    rra(t_list **stack_a)

@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/06 14:18:15 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/07 14:36:40 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,40 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-void	free_stack(t_list **stack)
+void find_and_push_min(t_list **stack_a, t_list **stack_b)
 {
-	t_list *tmp;
-	t_list *head;
+    if (!(*stack_a))
+        return;
 
-	head = *stack;
-	while (head)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
-	free(stack);
+    t_list *current = *stack_a;
+    t_list *min_node = current;
+    int min_value = current->value;
+
+    // Finde den minimalen Wert und das zugehörige Listenelement
+    while (current)
+    {
+        if (current->value < min_value)
+        {
+            min_value = current->value;
+            min_node = current;
+        }
+        current = current->next;
+    }
+
+    // Entferne das minimale Element aus Stack A
+    if (min_node == *stack_a)
+        *stack_a = (*stack_a)->next;
+    else
+    {
+        current = *stack_a;
+        while (current->next != min_node)
+            current = current->next;
+        current->next = min_node->next;
+    }
+
+    // Füge das minimale Element zu Stack B hinzu
+    min_node->next = *stack_b;
+    *stack_b = min_node;
 }
 
 // void	ft_lstadd_back(t_list **lst, t_list *new)

@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/06 14:46:09 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:34:46 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,6 @@ int	main(int ac, char **av)
 	if(!stack_a || !stack_b)
 	    return (0);
 	init_stack(stack_a, ac, av);
-	//printf("fertig\n");
-    printf("stack a :\n");
-    print_list(stack_a);
-
-    sa(stack_a);
-    printf("stack a :\n");
-    print_list(stack_a);
-
-
-    ra(stack_a);
-    printf("stack a :\n");
-    print_list(stack_a);
 	start_sort(stack_a, stack_b);
 	return (0);
 }
