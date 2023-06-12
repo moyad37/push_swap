@@ -30,11 +30,20 @@ int				nb;
 void			*content;
 }					t_list;
 */
+typedef struct s_sort
+{
+    int flag;
+    int max;
+    int min;
+    int mid;
+}               t_sort;
 
 
 typedef struct s_list
 {
     int value;
+    int index;
+    int flag;
     int index;
     struct s_list *next;
 }					t_list;
@@ -66,7 +75,11 @@ void    sort_5(t_list **stack_a, t_list **stack_b);
 int find_min_value(t_list *stack);
 int find_index_of_min(t_list *stack, int min);
 void get_min_to_top(t_list **stack_a, int top_index);
-
+void    get_min(t_list **stack);
+void    get_max(t_list **stack);
+int	count_lst(t_list **stack);
+void	set_index(t_list **stack_a);
+int    a_is_sorted(t_list **stack_a, int count);
 
 ///Rotate
  //static void rotate(t_list **stack);

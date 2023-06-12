@@ -49,6 +49,41 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
+void    get_min(t_list **stack)
+{
+    t_list	*min;
+	t_list	*temp;
+    
+    if (!(*stack))
+        return;
+
+	min = *stack;
+	temp = *stack;
+	while (temp)
+	{
+		if (temp->value < min->value)
+			min = temp;
+		temp = temp->next;
+	}
+	return (min);
+}
+
+void    get_max(t_list **stack)
+{
+	t_list	*max;
+	t_list	*temp;
+
+	max = *stack;
+	temp = *stack;
+	while (temp)
+	{
+		if (temp->value > max->value)
+			max = temp;
+		temp = temp->next;
+	}
+	return (max);
+}
+
 void find_and_push_min(t_list **stack_a, t_list **stack_b)
 {
     if (!(*stack_a))
@@ -85,6 +120,61 @@ void find_and_push_min(t_list **stack_a, t_list **stack_b)
     *stack_b = min_node;
 }
 
+int	count_lst(t_list **stack)
+{
+	t_list	*temp;
+	int		i;
+
+	i = 0;
+	temp = *stack;
+	while (temp)
+	{
+		i++;
+		temp = temp->next;
+	}
+	return (i);
+}
+
+void	set_index(t_list **stack_a)
+{
+	t_list			*temp;
+	t_list			*min_list;
+	long long int	min;
+	int				i;
+	int				j;
+
+	i = count_lst(stack_a);
+	j = 0;
+	while (j < i)
+	{
+		min = LLONG_MAX;
+		temp = *stack_a;
+		while (temp)
+		{
+			if ((temp->value < min) && (temp->index == -1))
+			{
+				min = temp->value;
+				min_list = temp;
+			}
+			temp = temp->next;
+		}
+		min_list->index = j;
+		j++;
+	}
+}
+
+
+int    a_is_sorted(t_list **stack_a, int count)
+{
+    int i;
+
+    i = count_lst(stack_a);
+    if(i != count)
+        return (0)
+    if(check_sorted(stack_a) ==)
+        return (0);
+    return (1);
+}
 // void	ft_lstadd_back(t_list **lst, t_list *new)
 // {
 // 	t_list	*tmp;

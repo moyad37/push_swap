@@ -516,7 +516,7 @@ void print_list(t_list *list)
 {
     while (list)
     {
-        printf("%d ", list->value);
+        printf("%d -> %d", list->value, list->flag);
         list = list->next;
     }
     printf("\n");
