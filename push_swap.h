@@ -30,7 +30,6 @@ void				*content;
 */
 typedef struct s_sort
 {
-	int				flag;
 	int				max;
 	int				min;
 	int				mid;

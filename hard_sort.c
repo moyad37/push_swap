@@ -3,7 +3,7 @@
 
 void    first_sort(t_list **stack_a, t_list **stack_b, t_sort *sort)
 {
-    printf("first_sort\n");
+    //printf("first_sort\n");
 
     int i;
     int count_a;
@@ -28,43 +28,43 @@ void    first_sort(t_list **stack_a, t_list **stack_b, t_sort *sort)
 
 void    find_next(t_list **stack_a, t_list **stack_b, t_sort *sort)
 {
-    printf("find_next\n");
+    //printf("find_next\n");
 
     if(count_lst(stack_b) > 0 && (*stack_b)->index == sort->min)
     {
         pa(stack_a, stack_b);
-        printf("////1////\n");
+      //  printf("////1////\n");
     }
     else if ((*stack_a)->index == sort->min)
     {
         (*stack_a)->flag = -1;
         sort->min++;
         ra(stack_a);
-        printf("////2////\n");
-    }
-    else if (count_lst(stack_b) > 2 && (ft_lstlast(*stack_b)->index == sort->min))
-    {
-        rrb(stack_b);
-        printf("////5////\n");
+        //printf("////2////\n");
     }
     else if ((*stack_a)->next->index == sort->min)
     {
         sa(stack_a);
-        printf("////7////\n");
+        //printf("////7////\n");
     }
+    else if (count_lst(stack_b) == 2 && (*stack_b)->next->index == sort->min)
+    {
+         sb(stack_b);
+    //     printf("////4////\n");
+    } 
     else if ((count_lst(stack_a) > 1) && ((*stack_a)->next->index == sort->min) && ((*stack_b)->next->index == sort->min + 1))
     {
         ss(stack_a, stack_b);
-        printf("////3////\n");
+        //printf("////3////\n");
     }   
-    // else if (count_lst(stack_b) == 2 && (*stack_b)->next->index == sort->min)
-    // {
-    //     sb(stack_b);
-    //     printf("////4////\n");
-    // } 
+    else if (count_lst(stack_b) > 1 && (ft_lstlast(*stack_b)->index == sort->min))
+    {
+        rrb(stack_b);
+       // printf("////5////\n");
+    }
     else
     {
-        printf("////6////\n");
+        //printf("////6////\n");
         return ;
     }
     find_next(stack_a, stack_b, sort);
@@ -72,7 +72,7 @@ void    find_next(t_list **stack_a, t_list **stack_b, t_sort *sort)
 
 void    push_b_to_a(t_list **stack_a, t_list **stack_b, t_sort *sort)
 {
-    printf("push_a\n");
+    //printf("push_a\n");
 
     while(count_lst(stack_b) > 0)
     {
@@ -92,12 +92,12 @@ void    push_b_to_a(t_list **stack_a, t_list **stack_b, t_sort *sort)
 
 void    push_a_to_b(t_list **stack_a,  t_list **stack_b, t_sort *sort)
 {
-    printf("push_bbb\n");
-    int new_flag;
-    new_flag = (*stack_a)->flag;
-    if((*stack_a)->flag != 0)
+    //printf("push_bbb\n");
+    //int new_flag;
+    //new_flag = (*stack_a)->flag;
+    if((*stack_a)->flag == 1)
     {
-        while((*stack_a)->flag == new_flag)
+        while((*stack_a)->flag == 1)
         {
             if((*stack_a)->index != sort->min)
                 pb(stack_a, stack_b);
@@ -143,24 +143,23 @@ void    hard_sort(t_list **stack_a, t_list **stack_b)
     sort.min = get_min(stack_a)->index;
     sort.max = get_max(stack_a)->index;
     sort.mid = sort.max / 2 + sort.min;
-    sort.flag = 0;
     count = count_lst(stack_a);
     first_sort(stack_a, stack_b, &sort);
-    printf("stack A =\n");
-    print_list(*stack_a);
+    //printf("stack A =\n");
+    //print_list(*stack_a);
 
-    printf("stack B =\n");
-    print_list(*stack_b);
+    //printf("stack B =\n");
+    //print_list(*stack_b);
 
     while ((a_is_sorted(stack_a, count)) == 1)
     {
-        printf("RESULT  from while = %d\n", a_is_sorted(stack_a, count));
-        printf("---------------------------wort\n");
-        printf("stack A =\n");
-        print_list(*stack_a);
+      //  printf("RESULT  from while = %d\n", a_is_sorted(stack_a, count));
+       // printf("---------------------------wort\n");
+        //printf("stack A =\n");
+      //  print_list(*stack_a);
 
-        printf("stack B =\n");
-        print_list(*stack_b);
+        //printf("stack B =\n");
+        //print_list(*stack_b);
         if(count_lst(stack_b) == 0)
         {
             push_a_to_b(stack_a, stack_b, &sort);
@@ -170,5 +169,5 @@ void    hard_sort(t_list **stack_a, t_list **stack_b)
             push_b_to_a(stack_a, stack_b, &sort);
         }
     }
-    print_list(*stack_a);
+    //print_list(*stack_a);
 }
