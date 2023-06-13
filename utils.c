@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/07 14:36:40 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:02:00 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,11 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-void    get_min(t_list **stack)
+t_list    *get_min(t_list **stack)
 {
     t_list	*min;
 	t_list	*temp;
     
-    if (!(*stack))
-        return;
-
 	min = *stack;
 	temp = *stack;
 	while (temp)
@@ -68,7 +65,7 @@ void    get_min(t_list **stack)
 	return (min);
 }
 
-void    get_max(t_list **stack)
+t_list    *get_max(t_list **stack)
 {
 	t_list	*max;
 	t_list	*temp;
@@ -169,39 +166,7 @@ int    a_is_sorted(t_list **stack_a, int count)
     int i;
 
     i = count_lst(stack_a);
-    if(i != count)
-        return (0)
-    if(check_sorted(stack_a) ==)
+    if(i == count && check_sorted(stack_a) == 1)
         return (0);
     return (1);
 }
-// void	ft_lstadd_back(t_list **lst, t_list *new)
-// {
-// 	t_list	*tmp;
-
-// 	if(*lst)
-// 	{
-// 		tmp = ft_lstlast(*lst);
-// 		tmp->next = new;
-// 		new->next = NULL;
-// 	}
-// 	else
-// 	{
-// 		*lst = new;
-// 		(*lst)->next = NULL;
-// 	}
-// }
-
-// t_list	*ft_lstlast(t_list *lst)
-// {
-// 	t_list *tmp;
-
-// 	tmp = lst;
-// 	while(tmp->next)
-// 	{
-// 		tmp = tmp->next;
-// 		if(tmp->next == NULL)
-// 			return (tmp);
-// 	}
-// 	return (tmp);
-// }
