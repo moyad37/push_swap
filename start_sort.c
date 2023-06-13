@@ -30,8 +30,6 @@ void    start_sort(t_list **stack_a, t_list **stack_b)
 
     if(check_sorted(stack_a) == 1)
     {
-        free_stack(stack_a);
-        free_stack(stack_b);
         return ;
     }
     size = ft_lstsize(*stack_a);

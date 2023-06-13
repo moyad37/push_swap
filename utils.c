@@ -170,3 +170,25 @@ int    a_is_sorted(t_list **stack_a, int count)
         return (0);
     return (1);
 }
+
+void	ft_free_stack_content(t_list **stack)
+{
+	/*
+	t_list *tmp;
+
+	tmp = *stack;
+	while((*stack)->next != NULL)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next; 
+		free(tmp);
+	}
+	*/
+	while (*stack)
+    {
+        t_list *temp = *stack;
+        *stack = (*stack)->next;
+        free(temp);
+    }
+
+}

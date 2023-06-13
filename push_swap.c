@@ -69,5 +69,9 @@ int	main(int ac, char **av)
 	    return (0);
 	init_stack(stack_a, ac, av);
 	start_sort(stack_a, stack_b);
+	ft_free_stack_content(stack_a);
+	ft_free_stack_content(stack_b);
+	free(stack_a);
+	free(stack_b);
 	return (0);
 }

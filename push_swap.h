@@ -74,6 +74,8 @@ int					count_lst(t_list **stack);
 void				set_index(t_list **stack_a);
 int					a_is_sorted(t_list **stack_a, int count);
 void				hard_sort(t_list **stack_a, t_list **stack_b);
+void				ft_free_stack_content(t_list **stack);
+
 ///Rotate
 //static void rotate(t_list **stack);
 void				ra(t_list **stack_a);
