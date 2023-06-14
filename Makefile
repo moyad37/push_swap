@@ -1,4 +1,4 @@
-SRCS            = push_swap.c error.c check.c utils.c init.c start_sort.c swap.c \
+SRCS            = push_swap.c error.c check.c utils.c utils2.c start_sort.c swap.c \
 					rotate.c revers_rotate.c push.c easy_sort.c find_min_utils.c \
 					hard_sort.c
 
@@ -33,4 +33,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re client server
+.PHONY: all clean fclean re

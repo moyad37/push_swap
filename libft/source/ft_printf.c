@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmanssou  <mmanssou@student.42.fr   >      +#+  +:+       +#+        */
+/*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/06 13:51:11 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:31:34 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,13 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (result);
 }
-
+/*
 int	main(void)
 {
-    ft_printf(" %c \n %s \n %p \n %d \n %i \n %u \n %x \n %X \n %%", 'c',
-		"Hallo", 0, 534, 534, 534, -5, -5);
+	ft_printf(" %c \n %s \n %p \n %d \n %i \n %u \n %x \n %X \n %%", 'c',
+			"Hallo", 0, 534, 534, 534, -5, -5);
 	// ft_printf("%s", "rt");
 	// ft_printf("%p" , 5344);
-    return (0);
+	return (0);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:36:14 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/07 15:03:08 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/14 13:53:05 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,13 @@ static int	operation(int a, int b, int c)
 
 void	sort_3(t_list **stack)
 {
-	int a;
-	int b;
-	int c;
+	int	a;
+	int	b;
+	int	c;
 
 	a = (*stack)->value;
 	b = (*stack)->next->value;
 	c = (*stack)->next->next->value;
-
 	if (operation(a, b, c) == 1)
 	{
 		sa(stack);
@@ -61,33 +60,33 @@ void	sort_3(t_list **stack)
 		rra(stack);
 }
 
-void    sort_4(t_list **stack_a, t_list **stack_b)
+void	sort_4(t_list **stack_a, t_list **stack_b)
 {
-    int min_value;
-    int min_index;
+	int	min_value;
+	int	min_index;
 
-    min_value = find_min_value(*stack_a);
-    min_index = find_index_of_min(*stack_a, min_value);
-    get_min_to_top(stack_a, min_index);
-    pb(stack_a, stack_b);
-    sort_3(stack_a);
-    pa(stack_a, stack_b);
+	min_value = find_min_value(*stack_a);
+	min_index = find_index_of_min(*stack_a, min_value);
+	get_min_to_top(stack_a, min_index);
+	pb(stack_a, stack_b);
+	sort_3(stack_a);
+	pa(stack_a, stack_b);
 }
 
-void    sort_5(t_list **stack_a, t_list **stack_b)
+void	sort_5(t_list **stack_a, t_list **stack_b)
 {
-    int min_value;
-    int min_index;
+	int	min_value;
+	int	min_index;
 
-    min_value = find_min_value(*stack_a);
-    min_index = find_index_of_min(*stack_a, min_value);
-    get_min_to_top(stack_a, min_index);
-    pb(stack_a, stack_b);
-    min_value = find_min_value(*stack_a);
-    min_index = find_index_of_min(*stack_a, min_value);
-    get_min_to_top(stack_a, min_index);
-    pb(stack_a, stack_b);
-    sort_3(stack_a);
-    pa(stack_a, stack_b);
-    pa(stack_a, stack_b);
+	min_value = find_min_value(*stack_a);
+	min_index = find_index_of_min(*stack_a, min_value);
+	get_min_to_top(stack_a, min_index);
+	pb(stack_a, stack_b);
+	min_value = find_min_value(*stack_a);
+	min_index = find_index_of_min(*stack_a, min_value);
+	get_min_to_top(stack_a, min_index);
+	pb(stack_a, stack_b);
+	sort_3(stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }

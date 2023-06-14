@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/07 14:36:45 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:30:20 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ void	ft_putendl_fd(char *s, int fd)
 	write(fd, "\n", 1);
 }
 
-void return_error(char *str)
+void	return_error(char *str)
 {
-    ft_putendl_fd(str, 1);
-    exit(0);
+	ft_putendl_fd(str, 1);
+	exit(0);
 }
 
 void	free_stack(t_list **stack)
 {
-	t_list *tmp;
-	t_list *head;
+	t_list	*tmp;
+	t_list	*head;
 
 	head = *stack;
 	while (head)

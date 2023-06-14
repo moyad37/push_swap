@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:05:44 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/07 13:33:02 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:28:11 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	pa(t_list **stack_a, t_list **stack_b)
 
 void	pb(t_list **stack_a, t_list **stack_b)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!(*stack_a))
 		return ;

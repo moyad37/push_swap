@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/13 13:46:08 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:15:45 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-/*
-typedef struct s_list
-{
-struct s_list		*next;
-int					index;
-int					flag;
-int					nb;
-void				*content;
-}					t_list;
-*/
 typedef struct s_sort
 {
 	int				max;

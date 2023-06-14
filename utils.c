@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/13 15:02:00 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:18:57 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,27 @@ int	ft_is_number(char *n)
 	int	i;
 
 	i = 0;
-	if (n[i] == '-')
+	if (n[i] == '-' && n[i + 1])
 		i++;
-	while (n[i++])
-		if (!ft_isdigit(n[i]))
+	while (n[i])
+	{
+		if (n[i] >= '0' && n[i] <= '9')
+			i++;
+		else
 			return (1);
+	}
 	return (0);
 }
 
 long	ft_atol(const char *str)
 {
-	int sign = 1;
-	long result = 0;
-	int i = 0;
+	int		sign;
+	long	result;
+	int		i;
 
+	sign = 1;
+	result = 0;
+	i = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -49,11 +56,11 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-t_list    *get_min(t_list **stack)
+t_list	*get_min(t_list **stack)
 {
-    t_list	*min;
+	t_list	*min;
 	t_list	*temp;
-    
+
 	min = *stack;
 	temp = *stack;
 	while (temp)
@@ -65,7 +72,7 @@ t_list    *get_min(t_list **stack)
 	return (min);
 }
 
-t_list    *get_max(t_list **stack)
+t_list	*get_max(t_list **stack)
 {
 	t_list	*max;
 	t_list	*temp;
@@ -79,116 +86,4 @@ t_list    *get_max(t_list **stack)
 		temp = temp->next;
 	}
 	return (max);
-}
-
-void find_and_push_min(t_list **stack_a, t_list **stack_b)
-{
-    if (!(*stack_a))
-        return;
-
-    t_list *current = *stack_a;
-    t_list *min_node = current;
-    int min_value = current->value;
-
-    // Finde den minimalen Wert und das zugehörige Listenelement
-    while (current)
-    {
-        if (current->value < min_value)
-        {
-            min_value = current->value;
-            min_node = current;
-        }
-        current = current->next;
-    }
-
-    // Entferne das minimale Element aus Stack A
-    if (min_node == *stack_a)
-        *stack_a = (*stack_a)->next;
-    else
-    {
-        current = *stack_a;
-        while (current->next != min_node)
-            current = current->next;
-        current->next = min_node->next;
-    }
-
-    // Füge das minimale Element zu Stack B hinzu
-    min_node->next = *stack_b;
-    *stack_b = min_node;
-}
-
-int	count_lst(t_list **stack)
-{
-	t_list	*temp;
-	int		i;
-
-	i = 0;
-	temp = *stack;
-	while (temp)
-	{
-		i++;
-		temp = temp->next;
-	}
-	return (i);
-}
-
-void	set_index(t_list **stack_a)
-{
-	t_list			*temp;
-	t_list			*min_list;
-	long long int	min;
-	int				i;
-	int				j;
-
-	i = count_lst(stack_a);
-	j = 0;
-	while (j < i)
-	{
-		min = LLONG_MAX;
-		temp = *stack_a;
-		while (temp)
-		{
-			if ((temp->value < min) && (temp->index == -1))
-			{
-				min = temp->value;
-				min_list = temp;
-			}
-			temp = temp->next;
-		}
-		min_list->index = j;
-		j++;
-	}
-}
-
-
-int    a_is_sorted(t_list **stack_a, int count)
-{
-    int i;
-
-    i = count_lst(stack_a);
-    if(i == count && check_sorted(stack_a) == 1)
-        return (0);
-    return (1);
-}
-
-void	ft_free_stack_content(t_list **stack)
-{
-	/*
-	t_list *tmp;
-
-	tmp = *stack;
-	while((*stack)->next != NULL)
-	{
-		tmp = *stack;
-		*stack = (*stack)->next; 
-		free(tmp);
-	}
-	*/
-	while (*stack)
-    {
-        t_list *temp = *stack;
-        *stack = (*stack)->next;
-        free(temp);
-    }
-
 }
