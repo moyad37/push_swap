@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/14 14:13:21 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:39:52 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ void	check_args(int ac, char **av)
 	while (test[i])
 	{
 		if (ft_is_number(test[i]) == 1)
-			return_error("check your args, it have to be a number\n");
+			return_error("Error\n");
 		if (ft_atol(test[i]) >= 2147483647 || ft_atol(test[i]) < -2147483648)
-			return_error("check your args, INT_MAX or -INT_MAX\n");
+			return_error("Error\n");
 		if (ft_check_doupple(test, ft_atoi(test[i])) != 0)
-			return_error("check your args, it contains doupple numbers");
+			return_error("Error\n");
 		i++;
 	}
 	if (ac == 2)

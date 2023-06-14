@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/14 14:30:20 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:39:21 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putendl_fd(char *s, int fd)
 
 void	return_error(char *str)
 {
-	ft_putendl_fd(str, 1);
+	ft_putendl_fd(str, 2);
 	exit(0);
 }
 
