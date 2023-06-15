@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/14 14:25:22 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:39:20 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ int	main(int ac, char **av)
 	check_args(ac, av);
 	stack_a = (t_list **)malloc(sizeof(t_list));
 	stack_b = (t_list **)malloc(sizeof(t_list));
+	if(!stack_a || !stack_b)
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 	*stack_a = NULL;
 	*stack_b = NULL;
 	if (!stack_a || !stack_b)
