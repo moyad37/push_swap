@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/14 14:43:03 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:12:15 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,38 @@ int	ft_check_doupple(char **str, int n)
 	return (0);
 }
 
+int checking_all(int ac, char **test, int i)
+{
+	if (ft_is_number(test[i]) == 1)
+	{	
+		if (ac == 2)
+			free_array(test);
+		return_error("Error");
+	}
+	if (ft_atol(test[i]) >= 2147483647 || ft_atol(test[i]) < -2147483648)
+	{
+		if (ac == 2)
+			free_array(test);
+		return_error("Error");
+	}
+	if (ft_check_doupple(test, ft_atoi(test[i])) != 0)
+	{
+		if (ac == 2)
+			free_array(test);
+		return_error("Error");
+	}
+	return (0);
+}
+
 void	check_args(int ac, char **av)
 {
 	int		i;
 	char	**test;
 
+	test = NULL;
+	i = 0;
 	if (ac == 2)
-	{
-		i = 0;
 		test = ft_split(av[1], ' ');
-	}
 	else if (ac > 2)
 	{
 		i = 1;
@@ -56,16 +78,32 @@ void	check_args(int ac, char **av)
 	}
 	while (test[i])
 	{
-		if (ft_is_number(test[i]) == 1)
-			return_error("Error");
-		if (ft_atol(test[i]) >= 2147483647 || ft_atol(test[i]) < -2147483648)
-			return_error("Error");
-		if (ft_check_doupple(test, ft_atoi(test[i])) != 0)
-			return_error("Error");
+		if(checking_all(ac, test, i) == 0)
 		i++;
+		else
+			free_array(test);
+		// if (ft_is_number(test[i]) == 1)
+		// {	
+		// 	if (ac == 2)
+		// 		free_array(test);
+		// 	return_error("Error");
+		// }
+		// if (ft_atol(test[i]) >= 2147483647 || ft_atol(test[i]) < -2147483648)
+		// {
+		// 	if (ac == 2)
+		// 		free_array(test);
+		// 	return_error("Error");
+		// }
+		// if (ft_check_doupple(test, ft_atoi(test[i])) != 0)
+		// {
+		// 	if (ac == 2)
+		// 		free_array(test);
+		// 	return_error("Error");
+		// }
+		// i++;
 	}
 	if (ac == 2)
-		free(test);
+		free_array(test);
 }
 
 int	check_sorted(t_list **stack)

@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/14 14:30:31 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:42:58 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,23 @@ int	a_is_sorted(t_list **stack_a, int count)
 void	ft_free_stack_content(t_list **stack)
 {
 	t_list	*temp;
+	t_list	*next;
 
-	while (*stack)
+	temp = *stack;
+	while (temp != NULL)
 	{
-		temp = *stack;
-		*stack = (*stack)->next;
+		next = temp->next;
 		free(temp);
+		temp = next;
 	}
+	*stack = NULL;
 }
 
 void	print_list(t_list *list)
 {
 	while (list)
 	{
-		printf("%d \n", list->value);
+		printf("value -> %d \n flag -> %d\n", list->value, list->flag);
 		list = list->next;
 	}
 	printf("\n");

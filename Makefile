@@ -6,13 +6,13 @@ OBJS            = $(SRCS:.c=.o)
 
 SORT_NAME     = push_swap
 
-LIBFT_NAME      = libft.a
+LIBFT_NAME      = ./libft/source/libft.a
 
 CC              = cc
 
 RM              = rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 
 all:            $(LIBFT_NAME) $(SORT_NAME)
@@ -21,7 +21,7 @@ $(LIBFT_NAME):
 	$(MAKE) all -C ./libft/source
 
 $(SORT_NAME): $(OBJS)
-	$(CC) -o $(SORT_NAME) $(CFLAGS) $(OBJS) ./libft/source/libft.a
+	$(CC) -o $(SORT_NAME) $(CFLAGS) $(OBJS) $(LIBFT_NAME)
 
 clean:
 	$(MAKE) clean -C ./libft/source

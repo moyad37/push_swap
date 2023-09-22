@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/14 14:29:56 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/06/29 13:47:12 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	start_sort(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 
+	size = ft_lstsize(*stack_a);
 	if (check_sorted(stack_a) == 1)
 	{
 		return ;
 	}
-	size = ft_lstsize(*stack_a);
 	if (size > 1 && size < 6)
 		easy_sort(stack_a, stack_b, size);
 	else if (size > 5)

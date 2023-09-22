@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/14 14:15:45 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:14:18 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_sort
 	int				max;
 	int				min;
 	int				mid;
+	int				flag;
 }					t_sort;
 
 typedef struct s_list
@@ -51,6 +52,7 @@ int					check_sorted(t_list **stack);
 void				free_stack(t_list **stack);
 void				start_sort(t_list **stack_a, t_list **stack_b);
 void				sort_2(t_list **stack);
+void				free_array(char **str);
 //static int	operation(int a, int b, int c);
 void				sort_3(t_list **stack);
 void				sort_4(t_list **stack_a, t_list **stack_b);
@@ -88,4 +90,6 @@ void				ss(t_list **stack_a, t_list **stack_b);
 void				pa(t_list **stack_a, t_list **stack_b);
 void				pb(t_list **stack_a, t_list **stack_b);
 
+///utils
+void	print_list(t_list *list);
 #endif
