@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/09/25 13:53:29 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:37:05 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int	ft_check_doupple(char **str, int n)
 	return (0);
 }
 
-int checking_all(int ac, char **test, int i)
+int	checking_all(int ac, char **test, int i)
 {
 	if (ft_is_number(test[i]) == 1)
-	{	
+	{
 		if (ac == 2)
 			free_array(test);
 		return_error("Error");
@@ -78,29 +78,10 @@ void	check_args(int ac, char **av)
 	}
 	while (test[i])
 	{
-		if(checking_all(ac, test, i) == 0)
-		i++;
+		if (checking_all(ac, test, i) == 0)
+			i++;
 		else
 			free_array(test);
-		// if (ft_is_number(test[i]) == 1)
-		// {	
-		// 	if (ac == 2)
-		// 		free_array(test);
-		// 	return_error("Error");
-		// }
-		// if (ft_atol(test[i]) >= 2147483647 || ft_atol(test[i]) < -2147483648)
-		// {
-		// 	if (ac == 2)
-		// 		free_array(test);
-		// 	return_error("Error");
-		// }
-		// if (ft_check_doupple(test, ft_atoi(test[i])) != 0)
-		// {
-		// 	if (ac == 2)
-		// 		free_array(test);
-		// 	return_error("Error");
-		// }
-		// i++;
 	}
 	if (ac == 2)
 		free_array(test);

@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/09/22 13:19:02 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:35:44 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	free_array(char **str)
 		i++;
 	}
 	free(str);
-	//return_error("Error");
 }
-
 
 static void	init_stack(t_list **stack_a, int ac, char **av)
 {
@@ -54,16 +52,6 @@ static void	init_stack(t_list **stack_a, int ac, char **av)
 	}
 }
 
-// void	init_flag(t_list **stack)
-// {
-// 	t_list *temp = *stack;
-//     while (count_lst(&temp) && temp) 
-// 	{
-//         temp->flag = 5;
-//         temp = temp->next;
-//     }
-// }
-
 int	main(int ac, char **av)
 {
 	t_list	**stack_a;
@@ -81,8 +69,6 @@ int	main(int ac, char **av)
 	if (!stack_a || !stack_b)
 		return (0);
 	init_stack(stack_a, ac, av);
-	//init_flag(stack_a);
-	//print_list(*stack_a);
 	start_sort(stack_a, stack_b);
 	ft_free_stack_content(stack_a);
 	ft_free_stack_content(stack_b);
