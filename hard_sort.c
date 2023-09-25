@@ -12,32 +12,6 @@
 
 #include "push_swap.h"
 //alt
-void	first_sort(t_list **stack_a, t_list **stack_b, t_sort *sort)
-{
-	int	i;
-	int	count_a;
-
-	i = 0;
-	count_a = count_lst(stack_a);
-	while (i++ < count_a)
-	{
-		if ((*stack_a)->index <= sort->mid)
-			pb(stack_a, stack_b);
-		else if ((*stack_a)->index > sort->mid)
-		{
-			if (count_lst(stack_b) > 1 && (*stack_b)->index < sort->mid / 2)
-				rr(stack_a, stack_b);
-			else if ((*stack_a)->index > sort->mid)
-				ra(stack_a);
-		}
-	}
-	sort->max = sort->mid;
-	sort->mid = (sort->max - sort->min) / 2 + sort->min;
-	sort->flag++;
-}
-
-
-//neu und richtig
 // void	first_sort(t_list **stack_a, t_list **stack_b, t_sort *sort)
 // {
 // 	int	i;
@@ -49,11 +23,11 @@ void	first_sort(t_list **stack_a, t_list **stack_b, t_sort *sort)
 // 	{
 // 		if ((*stack_a)->index <= sort->mid)
 // 			pb(stack_a, stack_b);
-// 		else
+// 		else if ((*stack_a)->index > sort->mid)
 // 		{
-// 			if (count_lst(stack_b) > 1 && (((*stack_b)->index) < (sort->mid / 2)))
+// 			if (count_lst(stack_b) > 1 && (*stack_b)->index < sort->mid / 2)
 // 				rr(stack_a, stack_b);
-// 			else
+// 			else if ((*stack_a)->index > sort->mid)
 // 				ra(stack_a);
 // 		}
 // 	}
@@ -61,6 +35,32 @@ void	first_sort(t_list **stack_a, t_list **stack_b, t_sort *sort)
 // 	sort->mid = (sort->max - sort->min) / 2 + sort->min;
 // 	sort->flag++;
 // }
+
+
+//neu und richtig
+void	first_sort(t_list **stack_a, t_list **stack_b, t_sort *sort)
+{
+	int	i;
+	int	count_a;
+
+	i = 0;
+	count_a = count_lst(stack_a);
+	while (i++ < count_a)
+	{
+		if ((*stack_a)->index <= sort->mid)
+			pb(stack_a, stack_b);
+		else
+		{
+			if (count_lst(stack_b) > 1 && (((*stack_b)->index) < (sort->mid / 2)))
+				rr(stack_a, stack_b);
+			else
+				ra(stack_a);
+		}
+	}
+	sort->max = sort->mid;
+	sort->mid = (sort->max - sort->min) / 2 + sort->min;
+	sort->flag++;
+}
 
 
 void	find_next(t_list **stack_a, t_list **stack_b, t_sort *sort)
@@ -88,7 +88,7 @@ void	find_next(t_list **stack_a, t_list **stack_b, t_sort *sort)
 	find_next(stack_a, stack_b, sort);
 }
 
-//alt
+
 // void	push_b_to_a(t_list **stack_a, t_list **stack_b, t_sort *sort)
 // {
 // 	while (count_lst(stack_b) > 0)
@@ -108,8 +108,8 @@ void	find_next(t_list **stack_a, t_list **stack_b, t_sort *sort)
 // 	sort->flag++;
 // }
 
-//DA IST DER FEHLER
-//neu und richtig
+
+// //neu
 void	push_b_to_a(t_list **stack_a, t_list **stack_b, t_sort *sort)
 {
 	int	count_b;
@@ -135,7 +135,7 @@ void	push_b_to_a(t_list **stack_a, t_list **stack_b, t_sort *sort)
 }
 
 
-//Falsch und alt
+
 // void	push_a_to_b(t_list **stack_a, t_list **stack_b, t_sort *sort)
 // {
 // 	//printf("----------HALLOOOOOO PPPPP---------\n");
@@ -163,7 +163,7 @@ void	push_b_to_a(t_list **stack_a, t_list **stack_b, t_sort *sort)
 // 	sort->mid = (sort->max - sort->min) / 2 + sort->min;
 // }
 
-//richtig und neu
+//richtig
 void	push_a_to_b(t_list **stack_a, t_list **stack_b, t_sort *sort)
 {
 	int	now_flag;

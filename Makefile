@@ -12,7 +12,7 @@ CC              = cc
 
 RM              = rm -f
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 
 all:            $(LIBFT_NAME) $(SORT_NAME)
@@ -22,6 +22,8 @@ $(LIBFT_NAME):
 
 $(SORT_NAME): $(OBJS)
 	$(CC) -o $(SORT_NAME) $(CFLAGS) $(OBJS) $(LIBFT_NAME)
+
+
 
 clean:
 	$(MAKE) clean -C ./libft/source
