@@ -4,7 +4,7 @@ SRCS            = push_swap.c error.c check.c utils.c utils2.c start_sort.c swap
 
 OBJS            = $(SRCS:.c=.o)
 
-SORT_NAME     = push_swap
+NAME     = push_swap
 
 LIBFT_NAME      = ./libft/source/libft.a
 
@@ -15,13 +15,13 @@ RM              = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 
-all:            $(LIBFT_NAME) $(SORT_NAME)
+all:            $(LIBFT_NAME) $(NAME)
 
 $(LIBFT_NAME):
 	$(MAKE) all -C ./libft/source
 
-$(SORT_NAME): $(OBJS)
-	$(CC) -o $(SORT_NAME) $(CFLAGS) $(OBJS) $(LIBFT_NAME)
+$(NAME): $(OBJS)
+	$(CC) -o $(NAME) $(CFLAGS) $(OBJS) $(LIBFT_NAME)
 
 
 
@@ -31,7 +31,7 @@ clean:
 
 fclean: clean
 	$(MAKE) fclean -C ./libft/source
-	$(RM) $(SORT_NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/09/21 11:42:58 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:23:10 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,14 @@ void	ft_free_stack_content(t_list **stack)
 	}
 	*stack = NULL;
 }
-
+/*
 void	print_list(t_list *list)
 {
 	while (list)
 	{
-		printf("value -> %d \n flag -> %d\n", list->value, list->flag);
+		ft_printf("value -> %d \n flag -> %d\n", list->value, list->flag);
 		list = list->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }
+*/

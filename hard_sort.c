@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//alt
+
 void	first_sort(t_list **stack_a, t_list **stack_b, t_sort *sort)
 {
 	int	i;
