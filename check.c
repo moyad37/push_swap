@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/09/25 15:37:05 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:09:10 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,25 @@ int	ft_check_doupple(char **str, int n)
 		i++;
 	}
 	return (0);
+}
+
+int	check_lehr(char *av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (av[i] == ' ')
+		{
+			i++;
+		}
+		else if (av[i] != ' ')
+		{
+			return (0);
+		}
+	}
+	return (i);
 }
 
 int	checking_all(int ac, char **test, int i)
@@ -70,7 +89,11 @@ void	check_args(int ac, char **av)
 	test = NULL;
 	i = 0;
 	if (ac == 2)
+	{
+		if (!*av[1] || (check_lehr(av[1]) > 0))
+			return_error("Error");
 		test = ft_split(av[1], ' ');
+	}
 	else if (ac > 2)
 	{
 		i = 1;
