@@ -16,6 +16,19 @@ static int	count_c(char const *s, char c);
 static char	**put_array(char **my_array, int counter, char const *s, char c);
 static char	*get_str(char const *s, char c);
 
+void	free_arrayy(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
 char	**ft_split(const char *s, char c)
 {
 	char	**my_array;
@@ -28,6 +41,11 @@ char	**ft_split(const char *s, char c)
 	if (!my_array)
 		return (NULL);
 	my_array = put_array(my_array, counter, s, c);
+	if(!my_array)
+	{
+		free_arrayy(my_array);
+		return (NULL);
+	}
 	return (my_array);
 }
 
@@ -59,6 +77,8 @@ static char	**put_array(char **my_array, int counter, char const *s, char c)
 	while (++i < counter)
 	{
 		tmp = get_str(s, c);
+		if(!tmp)
+			return (NULL);
 		my_array[i] = (char *)malloc(sizeof(char) * (ft_strlen(tmp) + 1));
 		if (!my_array[i])
 			return (NULL);
@@ -93,6 +113,8 @@ static char	*get_str(char const *s, char c)
 	else
 		len = tmp - s;
 	str = (char *)malloc(sizeof(char) * (len + 1));
+	if(!str)
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{

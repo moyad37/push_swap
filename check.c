@@ -93,21 +93,26 @@ void	check_args(int ac, char **av)
 		if (!*av[1] || (check_lehr(av[1]) > 0))
 			return_error("Error");
 		test = ft_split(av[1], ' ');
+		if(!test)
+			return ;
 	}
 	else if (ac > 2)
 	{
 		i = 1;
 		test = av;
 	}
-	while (test[i])
+	if(test)
 	{
-		if (checking_all(ac, test, i) == 0)
-			i++;
-		else
+		while (test[i])
+		{
+			if (checking_all(ac, test, i) == 0)
+				i++;
+			else
+				free_array(test);
+		}
+		if (ac == 2)
 			free_array(test);
 	}
-	if (ac == 2)
-		free_array(test);
 }
 
 int	check_sorted(t_list **stack)

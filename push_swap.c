@@ -36,6 +36,8 @@ static void	init_stack(t_list **stack_a, int ac, char **av)
 	if (ac == 2)
 	{
 		str = ft_split(av[1], ' ');
+		if(!str)
+			return ;
 		while (str[i])
 		{
 			hm = ft_atoi(str[i]);
@@ -60,14 +62,19 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	check_args(ac, av);
-	stack_a = malloc(sizeof(t_list));
-	stack_b = malloc(sizeof(t_list));
-	if (!stack_a || !stack_b)
-		return_error("Error\n");
+	stack_a = malloc(sizeof(t_list *));
+    stack_b = malloc(sizeof(t_list *));
+    if (!stack_a || !stack_b)
+    {
+        // Handle memory allocation errors
+        if (!stack_a)
+            free(stack_a);
+        if (!stack_b)
+            free(stack_b);
+        return_error("Error\n");
+    }
 	*stack_a = NULL;
 	*stack_b = NULL;
-	if (!stack_a || !stack_b)
-		return (0);
 	init_stack(stack_a, ac, av);
 	start_sort(stack_a, stack_b);
 	ft_free_stack_content(stack_a);

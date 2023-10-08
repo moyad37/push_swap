@@ -19,7 +19,7 @@ int	ft_print_nbr(int n)
 
 	my = ft_itoa(n);
 	size = 0;
-	size = ft_print_string(my);
+	size += ft_print_string(my);
 	free(my);
 	return (size);
 }
