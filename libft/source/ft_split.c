@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmanssou  <mmanssou@student.42.fr   >      +#+  +:+       +#+        */
+/*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/06 13:51:11 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:15:47 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	**ft_split(const char *s, char c)
 	if (!my_array)
 		return (NULL);
 	my_array = put_array(my_array, counter, s, c);
-	if(!my_array)
+	if (!my_array)
 	{
 		free_arrayy(my_array);
 		return (NULL);
@@ -77,8 +77,6 @@ static char	**put_array(char **my_array, int counter, char const *s, char c)
 	while (++i < counter)
 	{
 		tmp = get_str(s, c);
-		if(!tmp)
-			return (NULL);
 		my_array[i] = (char *)malloc(sizeof(char) * (ft_strlen(tmp) + 1));
 		if (!my_array[i])
 			return (NULL);
@@ -113,7 +111,7 @@ static char	*get_str(char const *s, char c)
 	else
 		len = tmp - s;
 	str = (char *)malloc(sizeof(char) * (len + 1));
-	if(!str)
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (i < len)

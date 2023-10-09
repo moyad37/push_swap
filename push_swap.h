@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/09/25 15:35:01 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:01:47 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ void				pb(t_list **stack_a, t_list **stack_b);
 
 ///utils
 void				print_list(t_list *list);
+int					check_lehr(char *av);
 
 #endif

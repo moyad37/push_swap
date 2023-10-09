@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/09/29 15:09:10 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:16:28 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	checking_all(int ac, char **test, int i)
 			free_array(test);
 		return_error("Error");
 	}
-	if (ft_atol(test[i]) >= 2147483647 || ft_atol(test[i]) < -2147483648)
+	if (ft_atol(test[i]) > 2147483647 || ft_atol(test[i]) < -2147483648)
 	{
 		if (ac == 2)
 			free_array(test);
@@ -81,6 +81,19 @@ int	checking_all(int ac, char **test, int i)
 	return (0);
 }
 
+char	**check1(int ac, char **av, char **test)
+{
+	if (ac == 2)
+	{
+		if (!*av[1] || (check_lehr(av[1]) > 0))
+			return_error("Error");
+		test = ft_split(av[1], ' ');
+		if (!test)
+			return (NULL);
+	}
+	return (test);
+}
+
 void	check_args(int ac, char **av)
 {
 	int		i;
@@ -89,19 +102,13 @@ void	check_args(int ac, char **av)
 	test = NULL;
 	i = 0;
 	if (ac == 2)
-	{
-		if (!*av[1] || (check_lehr(av[1]) > 0))
-			return_error("Error");
-		test = ft_split(av[1], ' ');
-		if(!test)
-			return ;
-	}
+		test = check1(ac, av, test);
 	else if (ac > 2)
 	{
 		i = 1;
 		test = av;
 	}
-	if(test)
+	if (test)
 	{
 		while (test[i])
 		{
@@ -113,18 +120,4 @@ void	check_args(int ac, char **av)
 		if (ac == 2)
 			free_array(test);
 	}
-}
-
-int	check_sorted(t_list **stack)
-{
-	t_list	*tmp;
-
-	tmp = *stack;
-	while (tmp && tmp->next)
-	{
-		if (tmp->value > tmp->next->value)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
 }

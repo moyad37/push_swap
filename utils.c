@@ -6,7 +6,7 @@
 /*   By: mmanssou <mmanssou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by mmanssou          #+#    #+#             */
-/*   Updated: 2023/06/14 14:18:57 by mmanssou         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:47:19 by mmanssou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,18 @@ t_list	*get_max(t_list **stack)
 		temp = temp->next;
 	}
 	return (max);
+}
+
+int	check_sorted(t_list **stack)
+{
+	t_list	*tmp;
+
+	tmp = *stack;
+	while (tmp && tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }
